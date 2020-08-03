@@ -21,7 +21,7 @@ function Nav() {
             <a href="/"> Saul Huerta </a>
         </h2>
         <nav>
-            <ul className="flex-row">
+            <ul className="flex-row my-8">
                 <li className="mx-2">
                     <a href="#about">
                     About me

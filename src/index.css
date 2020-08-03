@@ -16,6 +16,7 @@ main {
   --spacing-two: calc(1rem);
   --spacing-three: calc(3rem);
   --spacing-five: calc(2.5rem);
+  --spacing-eight: calc(1.6rem);
 
 }
 
@@ -99,6 +100,28 @@ header {
 
 header a {
   color: var(--light);
+}
+
+footer {
+  background: var(--dark);
+  padding:10px;
+  justify-content: center;
+}
+
+footer a {
+  color: var(--light);
+  padding: 0px 20px;
+}
+
+footer img {
+  max-width: 100px;
+  max-height:85px;
+  width: auto;
+  height: auto;
+}
+
+#img2 {
+  padding-top: 10px;
 }
 
 button {
@@ -217,6 +240,10 @@ textarea {
 .my-2 {
   margin-top: var(--spacing-two);
   margin-bottom: var(--spacing-two);
+}
+
+.my-8 {
+  margin-top: var(--spacing-eight);
 }
 
 .my-5 {
