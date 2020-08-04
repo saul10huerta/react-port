@@ -278,6 +278,7 @@ textarea {
   max-height:460px;
   border-radius: 10px;
   text-align: center;
+  background: var(--dark);
 }
 
 .card:hover {
@@ -291,7 +292,7 @@ textarea {
   height: auto;
   cursor: pointer;
   margin: auto;
-  padding: 20px 40px;
+  padding: 0px 40px;
 }
 
 .modalBackdrop {
@@ -321,7 +322,7 @@ textarea {
 }
 
 button {
-	background: var(--primary);
+	border-color: var(--primary);
 	border: 0;
 	border-radius: 5px;
 	color: #fff;
