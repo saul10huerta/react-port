@@ -7,9 +7,12 @@ function Nav(props) {
         categories = [],
         setCurrentCategory,
         currentCategory,
+        contactSelected,
         setContactSelected,
         setPortfolioSelected,
+        aboutmeSelected,
         setAboutmeSelected,
+        resumeSelected,
         setResumeSelected
       } = props;
 
@@ -23,7 +26,7 @@ function Nav(props) {
         </h2>
         <nav>
             <ul className="flex-row my-8">
-                <li className="mx-2">
+                <li className={`mx-2 ${aboutmeSelected && 'navActive'}`}>
                     <span data-testid="about" onClick={() => {setContactSelected(false); 
                         setAboutmeSelected(true);
                         setPortfolioSelected(false);
@@ -35,8 +38,8 @@ function Nav(props) {
                 {categories.map((category) => (
                     <li
                     className={`mx-2 ${
-                        currentCategory.name === category.name && 'navActive'
-                    }`} key={category.name}>
+                        currentCategory.name === category.name && !aboutmeSelected && !contactSelected && !resumeSelected && `navActive`
+                        }`} key={category.name}>
                     <span onClick={() => {setCurrentCategory(category); 
                         setContactSelected(false);
                         setAboutmeSelected(false);
@@ -47,10 +50,10 @@ function Nav(props) {
                     </span>
                     </li>
                 ))}
-                <li className="mx-2">
+                <li className={`mx-2 ${contactSelected && 'navActive'}`}>
                     <span onClick={() => {setContactSelected(true); setAboutmeSelected(false); setPortfolioSelected(false); setResumeSelected(false);}}>Contact</span>
                 </li>
-                <li className="mx-2">
+                <li className={`mx-2 ${resumeSelected && 'navActive'}`}>
                     <span onClick={() => {setContactSelected(false); setAboutmeSelected(false); setPortfolioSelected(false); setResumeSelected(true);}}>Resume</span>
                 </li>
             </ul>
