@@ -24,19 +24,19 @@ function Nav(props) {
                     About me
                     </a>
                 </li>
-                <li className="mx-2">
-                    <span>Contact</span>
-                </li>
                 {categories.map((category) => (
                     <li
                     className={`mx-2 ${
                         currentCategory.name === category.name && 'navActive'
-                }`} key={category.name}>
+                    }`} key={category.name}>
                     <span onClick={() => {setCurrentCategory(category)}} >
                         {capitalizeFirstLetter(category.name)}
                     </span>
                     </li>
                 ))}
+                <li className="mx-2">
+                    <span>Contact</span>
+                </li>
                 <li className="mx-2">
                     <span>Resume</span>
                 </li>

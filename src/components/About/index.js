@@ -3,7 +3,7 @@ import coverImage from "../../assets/profilepic/profilePic.png";
 
 function About() {
   return (
-    <section className="my-5">
+    <section>
       <h1 id="about">About Me</h1>
       <img src={coverImage} className="my-1" style={{ width: "100%" }} alt="AboutMeImg" />
       <p className="my-5">Attended the University of Texas at Austin where I earned a BSA in Biology as well as certificates in both Business and Health Information Technology. In addition, I’m currently enrolled in UT Austin coding bootcamp working to be a full stack web developer. Will be earning a certificate from this bootcamp in October 2020.</p>

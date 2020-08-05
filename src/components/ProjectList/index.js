@@ -86,19 +86,19 @@ function PhotoList({ category }) {
     <div>
         <div className="flex-row">
         {photos.map((image, i) => (
-            <div className="card mx-3 my-5">
+            <div className="card mx-3 my-5" key={image.name}>
                 <p className="my-2">{image.name}</p>
                 <img
                     src={require(`../../assets/${category}/${i}.png`)}
                     alt={image.name}
                     className="img-thumbnail"
-                    key={image.name}
                     style={{width: "100%"}}
                 />
                 <div className="my-2">
-                <button type="button" className="mx-1"><a target="_blank" rel="noopener noreferrer" href={image.weblink}>Website Link</a></button>
+                <button type="button" className="mx-1 my-1"><a target="_blank" rel="noopener noreferrer" href={image.weblink}>Website Link</a></button>
                 <button type="button" className="mx-1"><a target="_blank" rel="noopener noreferrer" href={image.githubrepo}>GitHub Repo</a></button>
                 </div>
+                <p>{image.date}</p>
             </div>
         ))}
       </div>

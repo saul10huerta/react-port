@@ -5,7 +5,7 @@ main {
   padding: 50px 30px;
 }
 :root {
-  --primary: #8c54ff;
+  --primary: #cae983;
   --secondary: #DDA15E;
   --tertiary: #BC6C25;
   --light: #FEFAE0;
@@ -329,8 +329,8 @@ button {
 	cursor: pointer;
 	font-size: 16px;
 	font-weight: 600;
-	margin-bottom: 30px;
-	padding: 10px 15px;	
+	margin-bottom: 0px;
+	padding: 10px 15px;
 }
 
 a {
