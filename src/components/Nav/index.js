@@ -7,6 +7,10 @@ function Nav(props) {
         categories = [],
         setCurrentCategory,
         currentCategory,
+        setContactSelected,
+        setPortfolioSelected,
+        setAboutmeSelected,
+        setResumeSelected
       } = props;
 
       useEffect(() => {
@@ -20,25 +24,34 @@ function Nav(props) {
         <nav>
             <ul className="flex-row my-8">
                 <li className="mx-2">
-                    <a href="#about">
+                    <span data-testid="about" onClick={() => {setContactSelected(false); 
+                        setAboutmeSelected(true);
+                        setPortfolioSelected(false);
+                        setResumeSelected(false);
+                        }}>
                     About me
-                    </a>
+                    </span>
                 </li>
                 {categories.map((category) => (
                     <li
                     className={`mx-2 ${
                         currentCategory.name === category.name && 'navActive'
                     }`} key={category.name}>
-                    <span onClick={() => {setCurrentCategory(category)}} >
+                    <span onClick={() => {setCurrentCategory(category); 
+                        setContactSelected(false);
+                        setAboutmeSelected(false);
+                        setPortfolioSelected(true);
+                        setResumeSelected(false);
+                        }} >
                         {capitalizeFirstLetter(category.name)}
                     </span>
                     </li>
                 ))}
                 <li className="mx-2">
-                    <span>Contact</span>
+                    <span onClick={() => {setContactSelected(true); setAboutmeSelected(false); setPortfolioSelected(false); setResumeSelected(false);}}>Contact</span>
                 </li>
                 <li className="mx-2">
-                    <span>Resume</span>
+                    <span onClick={() => {setContactSelected(false); setAboutmeSelected(false); setPortfolioSelected(false); setResumeSelected(true);}}>Resume</span>
                 </li>
             </ul>
         </nav>
