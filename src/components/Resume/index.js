@@ -4,7 +4,7 @@ function Resume() {
   return (
     <section>
       <h1 id="about">Resume</h1>
-      <p className="my-5">Download my <a href="https://www.linkedin.com/in/saul10huerta/" target="_blank" rel="noopener noreferrer">resume</a> from LinkedIn.</p>
+      <p className="my-5">Download my <a href="https://www.linkedin.com/in/saul10huerta/" target="_blank" rel="noopener noreferrer">resume</a> from my LinkedIn profile.</p>
       <h3>Front-end Proficiencies</h3>
       <ul>
           <li>- HTML</li>
@@ -27,7 +27,6 @@ function Resume() {
           <li>- REST</li>
           <li>- GraphQL</li>
       </ul>
-      
     </section>
   );
 }
