@@ -1,3 +1,37 @@
+# React Portfolio
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## Description
+An updated portfolio using newly learned React and single-page application (SPA) skills that help set me apart from other developer's portfolios who may not be using the latest technologies.
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Image](#image)
+* [License](#license)
+* [Credits](#credits)
+* [Tests](#tests)
+* [Questions](#questions)
+## Installation
+clone repo and install npm dependencies and run npm start.
+## Usage
+Click on the link below to access the web app.
+* [React Portfolio](https://saul10huerta.github.io/react-port/)
+### Image:
+![](src/assets/reactport.png)
+## License
+Licensed under MIT.
+## Credits
+* W3Schools www.w3schools.com/  
+* Stack OverFlow www.stackoverflow.com/
+## Tests
+N/A
+## Questions
+Please feel free to contact me. GitHub & LinkedIn links provided below along with my Email.
+* [GitHub](github.com/saul10huerta)
+* [Email](saul10huerta@utexas.edu)
+* [LinkedIn](https://www.linkedin.com/in/saul10huerta/)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
