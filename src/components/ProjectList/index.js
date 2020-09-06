@@ -4,6 +4,13 @@ function PhotoList({ category }) {
 
     const [photos] = useState([
         {
+          name: 'Frame It',
+          category: 'projects',
+          weblink: 'https://cryptic-peak-35227.herokuapp.com/',
+          githubrepo: 'https://github.com/saul10huerta/frame-it',
+          date: 'August 2020'
+        },
+        {
           name: 'UpDog',
           category: 'projects',
           weblink: 'https://gentle-badlands-57330.herokuapp.com/',
