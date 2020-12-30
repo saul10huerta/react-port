@@ -1,16 +1,15 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { withRouter } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,81 +19,92 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
+      [theme.breakpoints.down('xs')]: {
+          flexGrow: 1
+      }
   },
+  NavOptions: {
+      display: "flex",
+      flex: 1,
+      justifyContent: "flex-end",
+
+  }
 }));
 
-export default function MenuAppBar() {
+const Nav = (props) => {
+    const { history } = props;
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleMenuClick = (pageURL) => {
+      history.push(pageURL);
     setAnchorEl(null);
+  };
+
+  const handleButtonClick = (pageURL) => {
+        history.push(pageURL);
   };
 
   return (
     <div className={classes.root}>
-      <FormGroup>
-        <FormControlLabel
-          control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Photos
+            Saul Huerta
           </Typography>
-          {auth && (
-            <div>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
-            </div>
-          )}
+              {isMobile ? (
+                <>
+                  <IconButton 
+                  edge="start" 
+                  className={classes.menuButton} 
+                  color="inherit"
+                  onClick={handleMenu} 
+                  aria-label="menu">
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={open}
+                  onClose={() => setAnchorEl(null)}
+                >
+                  <MenuItem onClick={() => handleMenuClick('/about')}>About Me</MenuItem>
+                  <MenuItem onClick={() => handleMenuClick('/portfolio')}>Portfolio</MenuItem>
+                  <MenuItem onClick={() => handleMenuClick('/resume')}>Resume</MenuItem>
+                  <MenuItem onClick={() => handleMenuClick('/contact')}>Contact Me</MenuItem>
+                </Menu>
+                </>
+                ): (
+                    <div className={classes.NavOptions}>
+                        <Button variant="contained" onClick={() => handleButtonClick('/about')}>About Me</Button>
+                        <Button variant="contained" onClick={() => handleButtonClick('/portfolio')}>Portfolio</Button>
+                        <Button variant="contained" onClick={() => handleButtonClick('/resume')}>Resume</Button>
+                        <Button variant="contained" onClick={() => handleButtonClick('/contact')}>Contact</Button>
+                    </div>
+                )}
         </Toolbar>
       </AppBar>
     </div>
   );
 }
 
+export default withRouter(Nav);
 // import React, { useEffect } from 'react';
 // import { capitalizeFirstLetter } from "../../utils/helpers";
 // import { Link } from 'react-router-dom';
