@@ -1,17 +1,21 @@
+import { Grid } from '@material-ui/core';
 import React from 'react';
-import { capitalizeFirstLetter } from '../../utils/helpers';
-import ProjectList from  '../ProjectList';
+import projectList from  '../ProjectList/index';
+import MediaCard from "../ProjectList/projectsCard";
 
-function Project({ currentCategory }) {
-  
-    const { name, description } = currentCategory;
-
+const Project = () => {
+    const getProjectCards = (projectsObj) => {
+      return (
+        <Grid item xs={12} sm={6} md={4}>
+          <MediaCard { ...projectsObj } />
+        </Grid>
+      );
+    };
     return (
-    <section>
-      <h1>{capitalizeFirstLetter(name)}</h1>
-      <p>{description}</p>
-      <ProjectList category={currentCategory.name} />
-    </section>
+      <Grid container spacing={4}>
+          {projectList.map(projectsObj => getProjectCards(projectsObj))}
+      </Grid>
+      
   );
 }
 export default Project;
