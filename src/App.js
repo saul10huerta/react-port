@@ -15,8 +15,8 @@ function App() {
         <Nav></Nav>
         <main>
           <Switch>
-            <Route path="/" exact component={About}/>
-            <Route path="/about" component={About}/>
+            <Route path="/react-port" component={About}/>
+            <Route path="/about" exact component={About}/>
             <Route path="/portfolio" component={Portfolio}/>
             <Route path="/contact" component={ContactForm}/>
             <Route path="/resume" component={Resume}/>
