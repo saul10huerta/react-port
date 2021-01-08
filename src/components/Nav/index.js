@@ -28,6 +28,11 @@ const useStyles = makeStyles((theme) => ({
       flex: 1,
       justifyContent: "flex-end",
 
+  },
+  button: {
+      color: "white",
+      border: "none",
+
   }
 }));
 
@@ -116,7 +121,7 @@ const Nav = (props) => {
                             {menuItems.map(menuItem => {
                             const {menuTitle, pageURL} = menuItem;
                             return (
-                                <Button variant="contained" onClick={() => handleButtonClick(pageURL)}>{menuTitle}</Button>
+                                <Button className={classes.button} onClick={() => handleButtonClick(pageURL)}>{menuTitle}</Button>
                             )
                             })}
                         </div>
